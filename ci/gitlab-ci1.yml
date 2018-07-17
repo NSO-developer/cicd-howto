@@ -1,0 +1,8 @@
+before_script:
+  # Get NSO initialized
+  - source /app/nso/ncsrc
+
+build:
+  stage: build
+  script:
+    - make

@@ -1,0 +1,17 @@
+before_script:
+  # Get NSO initialized
+  - source /app/nso/ncsrc
+
+build:
+  stage: build
+  script:
+    - make release
+  artifacts:
+    paths:
+      - release/
+
+test:
+  script:
+    - mv packages packages.old
+    - mv release packages
+    - ./test.sh
